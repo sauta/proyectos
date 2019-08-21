@@ -1,0 +1,244 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  color: #888;
+  font-size: 0.8125rem;
+  line-height: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  color: #222;
+  font-weight: 800;
+  font-size: 2em;
+  line-height: 1;
+}
+
+p {
+  margin: 2em 0;
+}
+
+.word-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.word-bg img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-height: 105%;
+  transform: translate(-50%, -50%);
+  filter: blur(5px) grayscale(50%);
+  opacity: 0.65;
+}
+
+@media (min-aspect-ratio: 221/100) {
+  .word-bg img {
+    max-height: none;
+    max-width: 105%;
+  }
+}
+
+.logo {
+  top: 1em;
+  left: 0;
+  max-width: 300px;
+}
+/* Cards */
+
+.card-wrap {
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  width: calc((320px + 2rem) * 6);
+  height: calc(100% - 5rem);
+  padding: 5rem 1rem 0;
+  margin: 0 auto;
+}
+
+.card {
+  --tint: #666;
+  position: relative;
+  min-width: 320px;
+  width: 320px;
+  margin: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 1.5em;
+  box-shadow: 0 0.5rem 1.5rem -0.25rem hsla(40,100%,5%,0.75);
+}
+
+.close {
+  position: absolute;
+  z-index: 10;
+  top: 1rem;
+  right: 1rem;
+  width: 1em;
+  color: var(--tint);
+  font-weight: 600;
+  font-size: 2.25em;
+  line-height: 1;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 600ms 200ms;
+}
+
+
+.subject {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 24em;
+  overflow: hidden;
+  border-radius: 1.5em 1.5em 0 0;
+}
+
+.subject .bg {
+  position: relative;
+  height: 93%;
+  overflow: hidden;
+}
+
+.subject .bg img {
+  position: absolute;
+  top: -0.5em;
+  left: 50%;
+  display: block;
+  height: 105%;
+  transform: translateX(-50%);
+  filter: blur(2px);
+}
+
+.subject .fg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  max-height: 17.9em;
+  transform: translateX(-50%);
+}
+
+.info {
+  padding: 24em 1.5em 1.5em;
+  border-radius: 0 0 1.5em 1.5em;
+  transition:
+    padding 400ms,
+    transform 800ms 300ms,
+    opacity 800ms 300ms;
+}
+
+.info .header {
+  text-align: center;
+}
+.tag {
+  color: var(--tint);
+  font-size: small;
+  font-weight: 600;
+}
+
+.content {
+  text-align: center;
+}
+
+.stats {
+  color: #fff;
+  font-size: xx-small;
+  text-transform: uppercase;
+}
+
+.stat {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 3px 4px;
+  margin: 1px 0;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.stat::before,
+.stat::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+}
+
+.stat::after {
+  width: 10%;
+  background-color: var(--tint);
+}
+
+
+.stat[data-stat="1"]::after { width: 14.29%; }
+.stat[data-stat="2"]::after { width: 28.57%; }
+.stat[data-stat="3"]::after { width: 42.86%; }
+.stat[data-stat="4"]::after { width: 57.14%; }
+.stat[data-stat="5"]::after { width: 71.43%; }
+.stat[data-stat="6"]::after { width: 85.71%; }
+.stat[data-stat="7"]::after { width: 100%; }
+
+/* Card - Collapsed */
+
+.collapsed {
+  background-color: transparent;
+  transition: 400ms 200ms;
+}
+
+.collapsed .close {
+  transform: rotate(45deg);
+}
+
+.collapsed .info {
+  padding: 1.5em;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 400ms;
+}
+
+#cap-america {
+  --tint: #0d47a1;
+}
+
+#ironman {
+  --tint: #c62828;
+}
+
+#thor {
+  --tint: #546e7a;
+}
+
+#hulk {
+  --tint: #388e3c;
+}
+
+#spiderman {
+  --tint: #d32f2f;
+}
+
+#wolverine {
+  --tint: #ffb300;
+}
+
